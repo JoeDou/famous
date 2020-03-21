@@ -455,8 +455,9 @@ define(function(require, exports, module) {
         }
 
         if (this._opacity !== opacity) {
+            opacity = opacity > 0.999 ? 1 : opacity 
             this._opacity = opacity;
-            target.style.opacity = (opacity >= 1) ? '0.999999' : opacity;
+            target.style.opacity = (opacity >= 1) ? '1' : opacity;
         }
 
         if (_xyNotEquals(this._origin, origin) || Transform.notEquals(this._matrix, matrix)) {
